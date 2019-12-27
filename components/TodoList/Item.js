@@ -25,7 +25,12 @@ const useStyles = makeStyles(theme => ({
 const Item = (props) => {
     const classes = useStyles();
     const item = props.item;
-    return(
+    const [check, setCheck] = React.useState(true);
+    const toggleChecked = () =>{
+        setCheck(!check);
+    }
+
+    return (
         <Box component="div">
             <ListItem alignItems="flex-start">
                 <ListItemAvatar>
@@ -36,28 +41,24 @@ const Item = (props) => {
                     primary={item.title}
                     secondary={
                         <React.Fragment>
-                            <Typography
-                                component="span"
-                                variant="body2"
-                                className={classes.inline}
-                                color="textPrimary"
-                                
-                            >
+                            <Typography component="span" variant="body2" className={classes.inline} color="textPrimary">
                                 {item.writer}
-                        </Typography>
-                             {' — '+item.context}
+                            </Typography>
+                            {' — ' + item.context}
                         </React.Fragment>
                     }
                 />
-                <Checkbox className={classes.checkBoxMargin} ></Checkbox>
+                <div>
+                    <Checkbox className={classes.checkBoxMargin} onChange={toggleChecked} ></Checkbox>
+                </div>
                 <IconButton aria-label="delete" className={classes.iconMargin}>
                     <DeleteIcon fontSize="small" />
                 </IconButton>
             </ListItem>
-            
+
             <Divider variant="inset" component="li" />
         </Box>
-    )
+    );
 }
 
 export default Item

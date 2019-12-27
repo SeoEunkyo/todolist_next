@@ -17,13 +17,8 @@ const testItemList = [
 
 
 const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-
-
+  
+    
     <Container>
       <h1>TodoList</h1>
       <AddItem/>
@@ -32,7 +27,6 @@ const Home = () => (
     </Container>
 
       
-  </div>
 )
 
 export default Home
