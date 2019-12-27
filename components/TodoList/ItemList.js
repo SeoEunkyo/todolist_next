@@ -18,7 +18,7 @@ const ItemList = (props) => {
     return(
     <Box component="div">
         <List className={classes.root}>
-            {itemList.map((item)=> <Item item={item}/>)}
+            {itemList.map((item)=> <Item key={item.title} item={item}/>)}
             
         </List>
     </Box>

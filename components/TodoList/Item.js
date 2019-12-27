@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box,ListItem,ListItemAvatar,Avatar,ListItemText, Typography,makeStyles,Divider, IconButton } from '@material-ui/core';
+import {Box,ListItem,ListItemAvatar,Avatar,ListItemText, Typography,makeStyles,Divider, IconButton , Checkbox} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete'
 import { green } from '@material-ui/core/colors';
 import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
@@ -11,7 +11,14 @@ const useStyles = makeStyles(theme => ({
     },
     iconMargin: {
         marginTop : 12,
+    },
+    checkBoxMargin: {
+        marginTop : 15,
+    },
+    itemDone:{
+        textDecoration:'line-through'
     }
+
 }));
 
 
@@ -25,6 +32,7 @@ const Item = (props) => {
                     <Avatar alt="Remy Sharp" src="http://placeimg.com/640/480/any" />
                 </ListItemAvatar>
                 <ListItemText
+                    className={classes.itemDone}
                     primary={item.title}
                     secondary={
                         <React.Fragment>
@@ -33,16 +41,15 @@ const Item = (props) => {
                                 variant="body2"
                                 className={classes.inline}
                                 color="textPrimary"
+                                
                             >
                                 {item.writer}
-                    </Typography>
+                        </Typography>
                              {' — '+item.context}
                         </React.Fragment>
                     }
                 />
-                <IconButton  className={classes.iconMargin}>
-                    <DoneOutlineIcon style={{ color: green[500] }} fontSize="small"/>
-                </IconButton>
+                <Checkbox className={classes.checkBoxMargin} ></Checkbox>
                 <IconButton aria-label="delete" className={classes.iconMargin}>
                     <DeleteIcon fontSize="small" />
                 </IconButton>

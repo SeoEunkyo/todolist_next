@@ -8,9 +8,9 @@ import ItemList from '../components/TodoList/ItemList'
 
 
 const itemList = [
-    {writer:'freehunterc', title : "Issue..20191227", context : "please check Database server1 ... I'll be in your neighborhood doing errands this…"},
-    {writer:'parkDex', title : "Issue..20191225", context : "please check Database server2 ... I'll be in your neighborhood doing errands this…"},
-    {writer:'hyunsuck', title : "Issue..20191224", context : "please check Database server3 ... I'll be in your neighborhood doing errands this…"}
+    {writer:'freehunterc', title : "Issue..20191227", context : "please check Database server1 ... I'll be in your neighborhood doing errands this…", done :true},
+    {writer:'parkDex', title : "Issue..20191225", context : "please check Database server2 ... I'll be in your neighborhood doing errands this…", done: false},
+    {writer:'hyunsuck', title : "Issue..20191224", context : "please check Database server3 ... I'll be in your neighborhood doing errands this…", done:false}
 
 ]
 

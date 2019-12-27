@@ -8,7 +8,8 @@ const AddItem = () => (
             <TextField id="standard-full-width" 
             label="Type here"
             style={{ margin: 8,
-                width: '50%' }}
+                width: '50%' 
+                }}
             size = "medium"
             />
         </Box>
