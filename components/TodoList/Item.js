@@ -17,17 +17,21 @@ const useStyles = makeStyles(theme => ({
     },
     itemDone:{
         textDecoration:'line-through'
+    },
+    itemNotDone:{
+        
     }
 
 }));
 
 
+
 const Item = (props) => {
     const classes = useStyles();
     const item = props.item;
-    const [check, setCheck] = React.useState(true);
+    const [checked, setchecked] = React.useState(true);
     const toggleChecked = () =>{
-        setCheck(!check);
+        setchecked(!checked);
     }
 
     return (
@@ -37,7 +41,7 @@ const Item = (props) => {
                     <Avatar alt="Remy Sharp" src="http://placeimg.com/640/480/any" />
                 </ListItemAvatar>
                 <ListItemText
-                    className={classes.itemDone}
+                    className={checked ? classes.itemDone : classes.itemNotDone}
                     primary={item.title}
                     secondary={
                         <React.Fragment>
@@ -49,9 +53,9 @@ const Item = (props) => {
                     }
                 />
                 <div>
-                    <Checkbox className={classes.checkBoxMargin} onChange={toggleChecked} ></Checkbox>
+                    <Checkbox checked={checked} className={classes.checkBoxMargin} onChange={toggleChecked} value="primary" inputProps={{ 'aria-label': 'primary checkbox' }} />
                 </div>
-                <IconButton aria-label="delete" className={classes.iconMargin}>
+                <IconButton aria-label="delete" className={ classes.iconMargin }>
                     <DeleteIcon fontSize="small" />
                 </IconButton>
             </ListItem>
