@@ -1,27 +1,42 @@
-import React from 'react'
+import React,{useEffect,useState, Component} from 'react'
+import Head from 'next/head'
+//import socketIOClient  from 'socket.io-client'
 
 import {Container} from '@material-ui/core';
-import Itme from '../components/TodoList/Item'
-import ItemList from '../components/TodoList/ItemList'
+import AddItem from '../components/TodoList/AddItem';
+import ItemList from '../components/TodoList/ItemList';
+import storedTodoList from '../stores/todoList'
+
+import io  from 'socket.io-client'
 
 
 
+class PlayGround extends Component{
+    constructor(props){
+        super(props)
 
-const itemList = [
-    {writer:'freehunterc', title : "Issue..20191227", context : "please check Database server1 ... I'll be in your neighborhood doing errands this…", done :true},
-    {writer:'parkDex', title : "Issue..20191225", context : "please check Database server2 ... I'll be in your neighborhood doing errands this…", done: false},
-    {writer:'hyunsuck', title : "Issue..20191224", context : "please check Database server3 ... I'll be in your neighborhood doing errands this…", done:false}
+        this.state = {
+            hello:''
+        }
+    }
+    componentDidMount(){
+        this.socket = io()
+        this.socket.on('now', data => {
+            console.log('data : ' + data.message);
+            this.setState({
+                hello : data.message
+            })
+        })
+    }
 
-]
+    render(){
+        return(
+            <h1> {this.state.hello} </h1>
+        )
+    }
+}
 
 
-const PlayGround = () => (
-    <Container>
-        Play Ground
-        
-        <ItemList itemList={itemList}/>
-    </Container>
-)
 
 export default PlayGround
 
