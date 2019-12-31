@@ -3,9 +3,11 @@ import Item from '../TodoList/Item'
 import {Box,List,Divider ,withStyles } from '@material-ui/core';
 import storedTodoList from '../../stores/todoList'
 import { observer } from 'mobx-react';
+import { observable} from 'mobx'
 
+import Socket from '../socket';
 
-import io  from 'socket.io-client'
+//import io  from 'socket.io-client'
 
 // const useStyles = makeStyles(theme => ({
 //     root: {
@@ -26,6 +28,9 @@ const styles = theme =>({
 
 @observer
 class ItemList extends React.Component {
+
+    @observable socket = Socket('/');
+
     constructor(props){
         super(props)
 
@@ -34,7 +39,7 @@ class ItemList extends React.Component {
         }
     }
     componentDidMount(){
-        this.socket = io()
+        //this.socket = io()
         this.socket.on('now', data => {
             console.log('data : ' + data.message);
             this.setState({

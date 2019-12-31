@@ -24,6 +24,12 @@ io.on('connect', socket => {
     socket.emit('now', {
         message: 'zeit'
     });
+    socket.emit('recent-todolist', {
+        message: 'zeit2'
+    });
+    
+
+
 });
 
 Nextapp.prepare()
