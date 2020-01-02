@@ -45,10 +45,10 @@ const dataList = [
 io.on('connect', socket => {
     console.log('connected');
     socket.emit('now', {
-        message: 'zeit'
+        message: 'test1'
     });
     socket.emit('recent-todolist', {
-        message: 'zeit2'
+        message: 'test2'
     });
     socket.emit('update-todolist',{
         message : dataList
