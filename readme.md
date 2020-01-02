@@ -26,6 +26,7 @@ socket.on('add-todoitem', (data) =>{
 <br/>
 Client
 <br/>
+
 ```
 @action  addItem = (item) =>{
 	this.TodoList.unshift(item);
@@ -35,10 +36,13 @@ Client
 		}
 )};
 ```
+
+
 <br/>
 아래 사진과 같이 api또한 잘 작동함을 볼수있습니다. 
-(*사실 next js 9 가 나오면서 /page/api 경로로 js파일을 만들어도 api를 호출 할수있습니다. [https://nextjs.org/blog/next-9#](https://nextjs.org/blog/next-9#))
+(*사실 next js 9 가 나오면서 /page/api 경로로 js파일을 만들어도 api를 호출 할수있습니다. [https://nextjs.org/blog/next-9#])
 <br/>
+
 ![index](./readme_image/api.png)
 ```
 api.get('/ping', async  context  => {
