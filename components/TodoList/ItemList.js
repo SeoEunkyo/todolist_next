@@ -4,7 +4,6 @@ import {Box,List,Divider ,withStyles } from '@material-ui/core';
 import storedTodoList from '../../stores/todoList'
 import { observer } from 'mobx-react';
 import { observable} from 'mobx'
-
 import Socket from '../socket';
 
 //import io  from 'socket.io-client'

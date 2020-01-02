@@ -1,31 +1,15 @@
 import { observable, action } from "mobx";
+import Socket from '../components/socket'
+
 
 class TodoList {
     @observable userName = '#guest';
     @observable tmpCount = 3;
-    @observable TodoList = [
-        {
-            idx : 1,
-            writer: 'freehunterc',
-            title: 'Issue..20191227',
-            context: "please check Database server1 ... I'll be in your neighborhood doing errands this…",
-            done: true
-        },
-        {
-            idx : 2,
-            writer: 'parkDex',
-            title: 'Issue..20191225',
-            context: "please check Database server2 ... I'll be in your neighborhood doing errands this…",
-            done: false
-        },
-        {
-            idx : 3,
-            writer: 'hyunsuck',
-            title: 'Issue..20191224',
-            context: "please check Database server3 ... I'll be in your neighborhood doing errands this…",
-            done: true
-        }
-    ];
+    @observable TodoList = [ ];
+    @action updateTodoList = (itemList) =>{
+        this.TodoList = itemList
+    }
+
     @action setUserName = (name) =>{
         this.userName = name;
     }
@@ -36,6 +20,11 @@ class TodoList {
     }
     @action addItem = (item) =>{
         this.TodoList.unshift(item);
+        const socket = Socket('/');
+        socket.emit('add-todoitem', {
+                message : item
+            }
+        )
     }
 }
 

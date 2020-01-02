@@ -18,6 +18,29 @@ const server = require('http').createServer(app.callback());
 const io = require('socket.io')(server);
 
 
+const dataList = [
+    {
+        idx: 1,
+        writer: 'freehunterc',
+        title: 'Issue..20191227',
+        context: "please check Database server1 ... I'll be in your neighborhood doing errands this…",
+        done: true
+    },
+    {
+        idx: 2,
+        writer: 'parkDex',
+        title: 'Issue..20191225',
+        context: "please check Database server2 ... I'll be in your neighborhood doing errands this…",
+        done: false
+    },
+    {
+        idx: 3,
+        writer: 'hyunsuck',
+        title: 'Issue..20191224',
+        context: "please check Database server3 ... I'll be in your neighborhood doing errands this…",
+        done: true
+    }
+];
 
 io.on('connect', socket => {
     console.log('connected');
@@ -27,9 +50,15 @@ io.on('connect', socket => {
     socket.emit('recent-todolist', {
         message: 'zeit2'
     });
-    
-
-
+    socket.emit('update-todolist',{
+        message : dataList
+    });
+    socket.on('add-todoitem', (data) =>{
+        dataList.unshift(data.message);
+        socket.broadcast.emit('update-todolist', {
+            message : dataList
+        })
+    });
 });
 
 Nextapp.prepare()
