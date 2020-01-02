@@ -40,6 +40,7 @@ Client
 
 <br/>
 아래 사진과 같이 api또한 잘 작동함을 볼수있습니다. 
+<br/>
 (*사실 next js 9 가 나오면서 /page/api 경로로 js파일을 만들어도 api를 호출 할수있습니다. [https://nextjs.org/blog/next-9#])
 <br/>
 
